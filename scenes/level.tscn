@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=4 uid="uid://ddx5ptmbpeehp"]
+[gd_scene load_steps=6 format=4 uid="uid://ddx5ptmbpeehp"]
 
-[ext_resource type="TileSet" uid="uid://c143kjdi12qkd" path="res://scenes/tile_set.tres" id="1_w8frs"]
-[ext_resource type="PackedScene" uid="uid://cgpqudqx6fqcp" path="res://enemy.tscn" id="2_w7c3h"]
+[ext_resource type="TileSet" uid="uid://c143kjdi12qkd" path="res://tile_set.tres" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cgpqudqx6fqcp" path="res://scenes/enemy.tscn" id="2_w7c3h"]
+[ext_resource type="Script" uid="uid://dbsvv0cgrv17w" path="res://scenes/enemy_movement.gd" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bncrespsxarmm" path="res://scenes/player.tscn" id="3_w8frs"]
+
+[sub_resource type="Curve2D" id="Curve2D_w8frs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 274, 63, 0, 0, 0, 0, 766, 63, 0, 0, 0, 0, 766, 63, 0, 0, 0, 0, 768, 223, 0, 0, 0, 0, 272, 224, 0, 0, 0, 0, 275, 64)
+}
+point_count = 6
 
 [node name="Level" type="Node2D"]
 
@@ -21,12 +28,22 @@ tile_map_data = PackedByteArray("AAANAAwAAQAFAAgAAAANAA0AAQAFAAkAAAANAA4AAQAFAAo
 tile_set = ExtResource("1_w8frs")
 collision_visibility_mode = 1
 
-[node name="Enemy" parent="." instance=ExtResource("2_w7c3h")]
-position = Vector2(1613, 474)
-
 [node name="Player" parent="." instance=ExtResource("3_w8frs")]
 position = Vector2(265, 449)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+
+[node name="Enemy Movement" type="Node2D" parent="."]
+script = ExtResource("3_mx8sn")
+
+[node name="Path2D" type="Path2D" parent="Enemy Movement"]
+position = Vector2(15, -1)
+curve = SubResource("Curve2D_w8frs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemy Movement/Path2D"]
+position = Vector2(274, 63)
+
+[node name="Enemy" parent="Enemy Movement/Path2D/PathFollow2D" instance=ExtResource("2_w7c3h")]
+position = Vector2(0, -8)

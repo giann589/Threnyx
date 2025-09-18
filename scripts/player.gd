@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var speed = 300
 @export var health = 100
+@export var damage = 100
 
 @onready var animation = $AnimatedSprite2D
 
@@ -13,6 +14,7 @@ func player_movement():
 	
 	
 	#Player animation
+	var last_direction
 	if direction == Vector2.ZERO:
 		animation.play("idle")
 	else:

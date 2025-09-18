@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bncrespsxarmm"]
+[gd_scene load_steps=9 format=3 uid="uid://bncrespsxarmm"]
 
 [ext_resource type="Script" uid="uid://cylrbf1w0ifk7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://duglt7wy4h3s" path="res://art/Lizard_Back.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bs6f1suhi3kro" path="res://art/Lizard_Front.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://8x44di4ihbo5" path="res://art/Lizard_Look_Left.png" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bbn5re5u46ovr" path="res://claw.tscn" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 18.0
@@ -56,11 +57,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+radius = 22.0
+height = 64.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -68,4 +74,14 @@ texture_filter = 1
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_nvl01")
 animation = &"idle"
-metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_dqkch")
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Claw" parent="Weapon" instance=ExtResource("5_qlg0r")]
+position = Vector2(-47, -2)
