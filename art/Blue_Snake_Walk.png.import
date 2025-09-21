@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba40hft0ehnum"
-path="res://.godot/imported/CS006.png-02529cb9d9c7be2415898375dff838a4.ctex"
+uid="uid://bx8y8hilitnlr"
+path="res://.godot/imported/Blue_Snake_Walk.png-356cac236e02744dc5937e36a14479a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Claw Animation/CS006.png"
-dest_files=["res://.godot/imported/CS006.png-02529cb9d9c7be2415898375dff838a4.ctex"]
+source_file="res://art/Blue_Snake_Walk.png"
+dest_files=["res://.godot/imported/Blue_Snake_Walk.png-356cac236e02744dc5937e36a14479a4.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

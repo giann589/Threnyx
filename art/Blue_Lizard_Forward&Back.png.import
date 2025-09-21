@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djt45u7dvg3ej"
-path="res://.godot/imported/CS002.png-3e197b8432e6c5b0297104ec6cd59ee0.ctex"
+uid="uid://ltdpdkha143h"
+path="res://.godot/imported/Blue_Lizard_Forward&Back.png-3b57e36fb5dfca1448f6769121f3f337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Claw Animation/CS002.png"
-dest_files=["res://.godot/imported/CS002.png-3e197b8432e6c5b0297104ec6cd59ee0.ctex"]
+source_file="res://art/Blue_Lizard_Forward&Back.png"
+dest_files=["res://.godot/imported/Blue_Lizard_Forward&Back.png-3b57e36fb5dfca1448f6769121f3f337.ctex"]
 
 [params]
 
