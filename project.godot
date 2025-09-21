@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Threnyx"
+<<<<<<< Updated upstream
 run/main_scene="uid://ddx5ptmbpeehp"
+=======
+run/main_scene="uid://dmad6tp1ewegx"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [display]

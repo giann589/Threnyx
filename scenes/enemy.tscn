@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=18 format=3 uid="uid://cgpqudqx6fqcp"]
 
 [ext_resource type="Script" uid="uid://cylrbf1w0ifk7" path="res://scripts/player.gd" id="1_nenq2"]
@@ -428,10 +429,60 @@ shape = SubResource("CapsuleShape2D_onrkg")
 [node name="AttackHitbox" type="Area2D" parent="."]
 position = Vector2(41, 8)
 collision_layer = 4
+=======
+[gd_scene load_steps=9 format=3 uid="uid://cgpqudqx6fqcp"]
+
+[ext_resource type="Script" uid="uid://cky6qml8s4bh5" path="res://scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dk1b6bqsm4xjj" path="res://art/Enemy_Soldier_Sheet.png" id="2_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 40, 124, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(124, 40, 124, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(248, 40, 124, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(372, 40, 124, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 28.0
+height = 70.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+>>>>>>> Stashed changes
 collision_mask = 2
 monitoring = false
 monitorable = false
 
+<<<<<<< Updated upstream
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 shape = SubResource("RectangleShape2D_qhqgy")
 metadata/_edit_lock_ = true
@@ -449,3 +500,15 @@ libraries = {
 
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+=======
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(75, -4)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nenq2")
+frame = 1
+frame_progress = 0.8831521
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_md0e3")
+>>>>>>> Stashed changes
