@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://ddx5ptmbpeehp"]
+[gd_scene load_steps=7 format=4 uid="uid://ddx5ptmbpeehp"]
 
 [ext_resource type="TileSet" uid="uid://c143kjdi12qkd" path="res://tile_set.tres" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://cgpqudqx6fqcp" path="res://scenes/enemy.tscn" id="2_w7c3h"]
 [ext_resource type="Script" uid="uid://dbsvv0cgrv17w" path="res://scenes/enemy_movement.gd" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bncrespsxarmm" path="res://scenes/player.tscn" id="3_w8frs"]
+[ext_resource type="TileSet" uid="uid://2ltn52kdu18i" path="res://real_tile_set.tres" id="5_ppgk2"]
 
 [sub_resource type="Curve2D" id="Curve2D_w8frs"]
 _data = {
@@ -12,8 +13,10 @@ _data = {
 point_count = 6
 
 [node name="Level" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("1_w8frs")
 format = 2
 
@@ -48,3 +51,11 @@ curve = SubResource("Curve2D_w8frs")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemy Movement/Path2D"]
 position = Vector2(274, 63)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Layer1" type="TileMapLayer" parent="Node"]
+tile_set = ExtResource("5_ppgk2")
+
+[node name="Layer2" type="TileMapLayer" parent="Node"]
+tile_set = ExtResource("5_ppgk2")
