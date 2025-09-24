@@ -16,7 +16,6 @@ point_count = 6
 metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 tile_set = ExtResource("1_w8frs")
 format = 2
 
@@ -39,7 +38,7 @@ metadata/_edit_lock_ = true
 zoom = Vector2(3, 3)
 
 [node name="Enemy" parent="." instance=ExtResource("2_w7c3h")]
-position = Vector2(316, 355)
+position = Vector2(324, 255)
 
 [node name="Enemy Movement" type="Node2D" parent="."]
 visible = false
@@ -55,7 +54,9 @@ position = Vector2(274, 63)
 [node name="Node" type="Node" parent="."]
 
 [node name="Layer1" type="TileMapLayer" parent="Node"]
+visible = false
 tile_set = ExtResource("5_ppgk2")
 
 [node name="Layer2" type="TileMapLayer" parent="Node"]
+visible = false
 tile_set = ExtResource("5_ppgk2")

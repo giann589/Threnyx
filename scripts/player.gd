@@ -8,6 +8,11 @@ extends CharacterBody2D
 
 var is_attacking = false
 
+func _physics_process(delta):
+	player_movement()
+	player_attack_animation()
+
+#add comment block
 func player_movement():
 	#Player Movement
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -38,12 +43,16 @@ func _on_animation_player_animation_finished(anim_name):
 		is_attacking = false
 		
 		
-func _physics_process(delta):
-	player_movement()
-	player_attack_animation()
-
 
 func _on_attack_hitbox_body_entered(body):
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
+			
+
+func take_damage(amount) -> void:
+	health -= amount
+	print("Player health:", health)
+	if health <= 0:
+		queue_free()
+		
