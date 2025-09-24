@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgpqudqx6fqcp"]
+[gd_scene load_steps=10 format=3 uid="uid://cgpqudqx6fqcp"]
 
 [ext_resource type="Script" uid="uid://cky6qml8s4bh5" path="res://scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://bullet.tscn" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://dk1b6bqsm4xjj" path="res://art/Enemy_Soldier_Sheet.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
@@ -47,6 +48,7 @@ height = 70.0
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4gyqm")
+bullet_scene = ExtResource("2_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(75, -4)
@@ -55,6 +57,16 @@ sprite_frames = SubResource("SpriteFrames_nenq2")
 frame = 1
 frame_progress = 0.8831521
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_md0e3")
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+
+[node name="Bullet_Spawner" type="Marker2D" parent="."]
+position = Vector2(42, -9)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(315, -1)
+
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
