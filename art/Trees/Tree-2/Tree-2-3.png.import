@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk1b6bqsm4xjj"
-path="res://.godot/imported/Enemy_Soldier_Sheet.png-0b40eabe6e78e4797e115bab0f1b13a0.ctex"
+uid="uid://mijrn1ofuvjh"
+path="res://.godot/imported/Tree-2-3.png-7cd0b978ac4a3da50fd1d118c2ba9875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Enemy_Soldier_Sheet.png"
-dest_files=["res://.godot/imported/Enemy_Soldier_Sheet.png-0b40eabe6e78e4797e115bab0f1b13a0.ctex"]
+source_file="res://art/Trees/Tree-2/Tree-2-3.png"
+dest_files=["res://.godot/imported/Tree-2-3.png-7cd0b978ac4a3da50fd1d118c2ba9875.ctex"]
 
 [params]
 
