@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var shoot_cooldown = 2.0
+var shoot_cooldown = 1.0
 var health = 100
 var speed = 100
 

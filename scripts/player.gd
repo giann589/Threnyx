@@ -1,10 +1,11 @@
 extends CharacterBody2D
 @export var speed = 300
-@export var health = 100
-@export var damage = 15
+@export var health = 5
+@export var damage = 50
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var UI = $UI
 
 var is_attacking = false
 
@@ -43,7 +44,6 @@ func _on_animation_player_animation_finished(anim_name):
 		is_attacking = false
 		
 		
-
 func _on_attack_hitbox_body_entered(body):
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
@@ -56,3 +56,7 @@ func take_damage(amount) -> void:
 	if health <= 0:
 		queue_free()
 		
+	#update animation
+	
+func play_attack_sound():
+	pass

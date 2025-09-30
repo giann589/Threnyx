@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bx11syu7h0r4w"]
+[gd_scene load_steps=19 format=3 uid="uid://bx11syu7h0r4w"]
 
 [ext_resource type="Script" uid="uid://ck8j3skrg1qrg" path="res://scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://m3t3yt84ymdi" path="res://fonts/alien_3_font.otf" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://cu6boy3nounlj" path="res://music/Enduring Love.mp3" id="3_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
 
@@ -44,10 +46,11 @@ metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 727.0
-offset_top = 139.0
-offset_right = 1230.0
-offset_bottom = 314.0
+offset_left = 721.0
+offset_top = 145.0
+offset_right = 1224.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 128
 text = "Threnyx"
 horizontal_alignment = 1
@@ -102,6 +105,20 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_cm266")
 text = "Credits"
 metadata/_edit_lock_ = true
 
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qe12f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w44g7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cm266")
+text = "Exit"
+metadata/_edit_lock_ = true
+
+[node name="Main Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bqqt6")
+autoplay = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

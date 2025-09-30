@@ -24,6 +24,10 @@ window/size/viewport_height=1080
 enemies=""
 player=""
 
+[gui]
+
+theme/custom_font="uid://m3t3yt84ymdi"
+
 [input]
 
 move_left={

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddqprrnitdfio"]
+
+[ext_resource type="Texture2D" uid="uid://cqxxivrrg8f85" path="res://art/Heart_NoShadowt.png" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dcfwlw1jsxneq" path="res://scripts/ui.gd" id="1_m6e0p"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_m6e0p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 33.0
+offset_bottom = 33.0
+
+[node name="Heart" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Heart"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("1_fyqef")
+hframes = 5
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Heart2"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("1_fyqef")
+hframes = 5
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Heart3"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("1_fyqef")
+hframes = 5
+
+[node name="Heart4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Heart4"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("1_fyqef")
+hframes = 5
+
+[node name="Heart5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="Sprite2D" parent="HBoxContainer/Heart5"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("1_fyqef")
+hframes = 5

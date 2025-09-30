@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cgpqudqx6fqcp"]
 
 [ext_resource type="Script" uid="uid://cky6qml8s4bh5" path="res://scripts/enemy.gd" id="1_4gyqm"]
-[ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://bullet.tscn" id="2_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://scenes/bullet.tscn" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://dk1b6bqsm4xjj" path="res://art/Enemy_Soldier_Sheet.png" id="2_md0e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
@@ -51,8 +51,8 @@ script = ExtResource("1_4gyqm")
 bullet_scene = ExtResource("2_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(75, -4)
-scale = Vector2(3, 3)
+position = Vector2(53, -2)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nenq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
