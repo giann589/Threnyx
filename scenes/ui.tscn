@@ -1,0 +1,261 @@
+[gd_scene load_steps=19 format=3 uid="uid://ddqprrnitdfio"]
+
+[ext_resource type="Texture2D" uid="uid://cqxxivrrg8f85" path="res://art/Heart_NoShadowt.png" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dcfwlw1jsxneq" path="res://scripts/ui.gd" id="1_m6e0p"]
+[ext_resource type="Texture2D" uid="uid://c2ashlaf3yy8f" path="res://art/Heart_Grey.png" id="2_yev5y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdt2y"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm3ai"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dubc"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7vwb"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktti3"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgfq5"]
+atlas = ExtResource("2_yev5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dvkv"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_gdt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgfq5")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdcm2"]
+atlas = ExtResource("2_yev5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rmj2"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_gdt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdcm2")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsj0x"]
+atlas = ExtResource("2_yev5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsv74"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_gdt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsj0x")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mc3"]
+atlas = ExtResource("2_yev5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cof4p"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_gdt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1mc3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7tlh"]
+atlas = ExtResource("2_yev5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8k7j3"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_gdt2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7tlh")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_m6e0p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 33.0
+offset_bottom = 33.0
+
+[node name="Heart" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Heart"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_7dvkv")
+animation = &"alive"
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Heart2"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6rmj2")
+animation = &"alive"
+frame_progress = 0.5235436
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Heart3"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qsv74")
+animation = &"alive"
+frame_progress = 0.17496786
+
+[node name="Heart4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Heart4"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_cof4p")
+animation = &"alive"
+frame_progress = 0.48462903
+
+[node name="Heart5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(82.09, 0)
+layout_mode = 2
+
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Heart5"]
+position = Vector2(58, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_8k7j3")
+animation = &"alive"
+frame_progress = 0.20414168
