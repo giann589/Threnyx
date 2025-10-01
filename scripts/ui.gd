@@ -6,6 +6,15 @@ extends CanvasLayer
 	$HBoxContainer/Heart3,
 	$HBoxContainer/Heart4,
 	$HBoxContainer/Heart5]
+	
+	
+func _ready():
+	update_hearts(5)
 
-func _physics_process(delta: float) -> void:
-	pass
+func update_hearts(current_health):
+	for i in range(hearts.size()):
+		var heart_anim = hearts[i].get_node("Heart")
+		if i < current_health:
+			heart_anim.play("alive")
+		else:
+			heart_anim.play("dead")
