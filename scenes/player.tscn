@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bncrespsxarmm"]
+[gd_scene load_steps=28 format=3 uid="uid://bncrespsxarmm"]
 
 [ext_resource type="Script" uid="uid://cylrbf1w0ifk7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://cddirgp1eehnu" path="res://scenes/spit.tscn" id="2_3v2ag"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddqprrnitdfio" path="res://scenes/ui.tscn" id="8_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bfl3lebluojek" path="res://art/Alien/Alien_hit-Sheet.png" id="9_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://daxa24iqr72lt" path="res://art/Alien/Alien_deatht-Sheet.png" id="10_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://ctuoqf5xuyac8" path="res://music/Vali_Walk_Short.wav" id="11_jej6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 20.0
@@ -152,7 +153,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -204,7 +205,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334, 0.6666667, 0.75, 0.8333334, 0.9166667),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -216,7 +217,7 @@ tracks/4/path = NodePath("Sprite2D/AttackHitbox:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.19844541, 0.2560451, 0.3402738, 0.42205393, 0.50440586, 0.5884735),
+"times": PackedFloat32Array(0.198445, 0.256045, 0.340274, 0.422054, 0.504406, 0.588473),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, true, true, false, false]
@@ -292,7 +293,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.09687582, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"times": PackedFloat32Array(0, 0.0968758, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -345,7 +346,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.41169167, 0.9216943),
+"times": PackedFloat32Array(0, 0.411692, 0.921694),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -399,7 +400,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.00002),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.00002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7]
@@ -451,11 +452,26 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.26, 0.51000005, 0.7400001),
+"times": PackedFloat32Array(0, 0.26, 0.51, 0.74),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 1]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.13,
+"start_offset": 0.44,
+"stream": ExtResource("11_jej6c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_y4r1p"]
 resource_name = "walk_side"
@@ -505,11 +521,26 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.79999995, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.13,
+"start_offset": 0.44,
+"stream": ExtResource("11_jej6c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
 resource_name = "walk_up"
@@ -558,11 +589,26 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.020020008, 0.19002008, 0.36002016, 0.54004, 0.72003984),
+"times": PackedFloat32Array(0.02002, 0.19002, 0.36002, 0.54004, 0.72004),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 1, 0, 1]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.13,
+"start_offset": 0.44,
+"stream": ExtResource("11_jej6c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
 _data = {
@@ -620,7 +666,7 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+color = Color(0.791999, 0.791999, 0.791999, 1)
 energy = 2.33
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_smehm")
