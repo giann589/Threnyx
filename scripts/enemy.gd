@@ -7,6 +7,7 @@ var player_visible = false
 var player_in_range = false
 
 @export var bullet_scene: PackedScene
+@export var heart_pickup_scene: PackedScene
 @export var detection_range = 500
 @export var attack_range = 250
 @export var chase_speed = 150
@@ -86,8 +87,15 @@ func take_damage(amount) -> void:
 	health -= amount
 	print("Enemy health:", health)
 	if health <= 0:
+		drop_heal_pickup()
 		queue_free()
 		
+func drop_heal_pickup():
+	if heart_pickup_scene:
+		var pickup = heart_pickup_scene.instantiate()
+		get_parent().add_child(pickup)
+		pickup.global_position = global_position
+
 func update_animation_direction(direction):
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cgpqudqx6fqcp"]
+[gd_scene load_steps=32 format=3 uid="uid://cgpqudqx6fqcp"]
 
 [ext_resource type="Script" uid="uid://cky6qml8s4bh5" path="res://scripts/enemy.gd" id="1_4gyqm"]
 [ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://scenes/bullet.tscn" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bjr8xn6mx6jkh" path="res://art/Solider1.png" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://comojows31war" path="res://scenes/heart_pickup.tscn" id="3_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://b7prs1dqb17r2" path="res://art/Solider_Run_Left.png" id="4_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
@@ -225,6 +226,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4gyqm")
 bullet_scene = ExtResource("2_4ra3w")
+heart_pickup_scene = ExtResource("3_c4w8v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)

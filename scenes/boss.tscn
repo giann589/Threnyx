@@ -156,12 +156,13 @@ position = Vector2(4, -3)
 shape = SubResource("RectangleShape2D_wqpjq")
 
 [node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Bullet_Spawner" type="Marker2D" parent="."]
 position = Vector2(31, -2)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(315, -1)
+target_position = Vector2(10000, 0)
 
 [node name="Cannon_Timer" type="Timer" parent="."]
 wait_time = 5.0
