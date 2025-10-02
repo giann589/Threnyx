@@ -4738,7 +4738,7 @@ tile_map_data = PackedByteArray("AAAbAI0AAAAIABYAAAAbAI4AAAAIABcAAAAbAI8AAAAIABg
 tile_set = SubResource("TileSet_jh32y")
 
 [node name="Player" parent="." instance=ExtResource("2_0cso3")]
-position = Vector2(2108, 802)
+position = Vector2(-274, 2854)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -4813,5 +4813,14 @@ position = Vector2(2238, 2102)
 
 [node name="Enemy16" parent="Enemies" instance=ExtResource("3_2klcf")]
 position = Vector2(2436, -286)
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("3_2klcf")]
+position = Vector2(2548, 2952)
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("3_2klcf")]
+position = Vector2(2885, 3030)
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("3_2klcf")]
+position = Vector2(1154, 820)
 
 [connection signal="body_entered" from="Boss Trigger" to="Tank" method="_on_boss_trigger_body_entered"]

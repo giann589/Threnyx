@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 50
+var health = 500
 var speed = 100
 var last_facing_direction = Vector2.DOWN
 var player_visible = false
