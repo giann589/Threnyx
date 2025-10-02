@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://omgtyapoo28h"]
+
+[ext_resource type="Script" uid="uid://dcrsooaalsmum" path="res://scripts/cannon_bullet.gd" id="1_hh35i"]
+[ext_resource type="Texture2D" uid="uid://b8o2chlfq8513" path="res://art/PistolAmmoBig.png" id="2_8leng"]
+[ext_resource type="PackedScene" uid="uid://b3oumvihc4oj3" path="res://scenes/explosion.tscn" id="2_vxjg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
+size = Vector2(18, 8)
+
+[node name="Cannon Bullet" type="Area2D"]
+script = ExtResource("1_hh35i")
+explosion_scene = ExtResource("2_vxjg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v8qja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8leng")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

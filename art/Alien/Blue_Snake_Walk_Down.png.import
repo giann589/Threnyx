@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b54db644w5bc4"
-path="res://.godot/imported/Blue_Lizard_Sheet.png-29f20711ccdfc09d301472aa9c68527a.ctex"
+uid="uid://5rbgs2rsl8vi"
+path="res://.godot/imported/Blue_Snake_Walk_Down.png-390dc2109edcd0068e7782714e78e41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Blue_Lizard_Sheet.png"
-dest_files=["res://.godot/imported/Blue_Lizard_Sheet.png-29f20711ccdfc09d301472aa9c68527a.ctex"]
+source_file="res://art/Alien/Blue_Snake_Walk_Down.png"
+dest_files=["res://.godot/imported/Blue_Snake_Walk_Down.png-390dc2109edcd0068e7782714e78e41f.ctex"]
 
 [params]
 

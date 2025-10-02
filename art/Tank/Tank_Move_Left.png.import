@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ltdpdkha143h"
-path="res://.godot/imported/Blue_Lizard_Forward&Back.png-3b57e36fb5dfca1448f6769121f3f337.ctex"
+uid="uid://cjyew0y21wa5p"
+path="res://.godot/imported/Tank_Move_Left.png-724c6a20188d3cea1ebbd31d20a43c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Blue_Lizard_Forward&Back.png"
-dest_files=["res://.godot/imported/Blue_Lizard_Forward&Back.png-3b57e36fb5dfca1448f6769121f3f337.ctex"]
+source_file="res://art/Tank/Tank_Move_Left.png"
+dest_files=["res://.godot/imported/Tank_Move_Left.png-724c6a20188d3cea1ebbd31d20a43c32.ctex"]
 
 [params]
 

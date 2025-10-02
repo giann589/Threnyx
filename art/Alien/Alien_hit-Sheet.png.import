@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwg6guoef0y6"
-path="res://.godot/imported/Blue_Snake_Claw.png-4cdf4873814a7bfb30a13563030da478.ctex"
+uid="uid://bfl3lebluojek"
+path="res://.godot/imported/Alien_hit-Sheet.png-f884deb5ffd7b7b6c838438e6edc3878.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Blue_Snake_Claw.png"
-dest_files=["res://.godot/imported/Blue_Snake_Claw.png-4cdf4873814a7bfb30a13563030da478.ctex"]
+source_file="res://art/Alien/Alien_hit-Sheet.png"
+dest_files=["res://.godot/imported/Alien_hit-Sheet.png-f884deb5ffd7b7b6c838438e6edc3878.ctex"]
 
 [params]
 
