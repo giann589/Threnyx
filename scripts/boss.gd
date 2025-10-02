@@ -1,12 +1,17 @@
 extends CharacterBody2D
 
-var health = 100
+var health = 500
 var speed = 100
 var last_facing_direction = Vector2.DOWN
 var player_visible = false
 var player_in_range = false
+var start_y = 0
+var move_distance = 200
+var moving_up = false
+var active = false
 
 @export var bullet_scene: PackedScene
+@export var cannon_bullet_scene: PackedScene
 @export var detection_range = 500
 @export var attack_range = 250
 @export var chase_speed = 150
@@ -27,10 +32,22 @@ const BULLET_LOCATIONS = {
 
 
 func _ready():
+	start_y = global_position.y
 	shoot_timer.start()
 
 
 func _process(delta):
+	if not active:
+		return
+	
+	if moving_up:
+		global_position.y -= speed * delta
+		if global_position.y <= start_y - move_distance:
+			moving_up = false
+	else:
+		global_position.y += speed * delta
+		if global_position.y >= start_y + move_distance:
+			moving_up = true
 	var dist_to_player = global_position.distance_to(player.global_position)
 
 	if dist_to_player <= detection_range and can_see_player():
@@ -39,24 +56,19 @@ func _process(delta):
 		player_visible = false
 
 	player_in_range = dist_to_player <= attack_range
-	
+
 	#Find player 
 	if player_visible:
 		var dir = (player.global_position - global_position).normalized()
-		
+
 		if player_in_range:
-			velocity = Vector2.ZERO
 			update_animation_direction(dir)
 		else:
-			velocity = dir * chase_speed
 			update_run_animation()
 
 		last_facing_direction = dir
 	else:
 		update_run_animation()
-		velocity = Vector2.ZERO
-		
-	move_and_slide()
 
 func _on_shoot_timer_timeout():
 	if player_visible:
@@ -103,15 +115,34 @@ func update_animation_direction(direction):
 func update_run_animation():
 	if abs(last_facing_direction.x) > abs(last_facing_direction.y):
 		if last_facing_direction.x > 0:
-			sprite.play("walk_right")
+			sprite.play("move_right")
 			shoot_pointer.position = BULLET_LOCATIONS["right"]
 		else:
-			sprite.play("walk_left")
+			sprite.play("move_left")
 			shoot_pointer.position = BULLET_LOCATIONS["left"]
 	else:
 		if last_facing_direction.y > 0:
-			sprite.play("walk_down")
+			sprite.play("move_down")
 			shoot_pointer.position = BULLET_LOCATIONS["down"]
 		else:
-			sprite.play("walk_up")
+			sprite.play("move_up")
 			shoot_pointer.position = BULLET_LOCATIONS["up"]
+
+
+func _on_cannon_timer_timeout():
+	if player_visible:
+		shoot_cannon()
+		
+		
+func shoot_cannon():
+	var cannon_bullet = cannon_bullet_scene.instantiate()
+	get_parent().add_child(cannon_bullet)
+	
+	cannon_bullet.global_position = shoot_pointer.global_position
+	cannon_bullet.direction = (player.global_position - cannon_bullet.global_position).normalized()
+	cannon_bullet.rotation = cannon_bullet.direction.angle()
+	
+	
+func _on_boss_trigger_body_entered(body):
+	if body.is_in_group("player"):
+		active = true

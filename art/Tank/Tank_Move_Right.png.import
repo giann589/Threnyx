@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfl3lebluojek"
-path="res://.godot/imported/Alien_hit-Sheet.png-6691eab36e8b79c43f329443be87ba92.ctex"
+uid="uid://c8x2un0ln8giq"
+path="res://.godot/imported/Tank_Move_Right.png-816e3ffe86d3ddca26a919dceff4f3ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Alien_hit-Sheet.png"
-dest_files=["res://.godot/imported/Alien_hit-Sheet.png-6691eab36e8b79c43f329443be87ba92.ctex"]
+source_file="res://art/Tank/Tank_Move_Right.png"
+dest_files=["res://.godot/imported/Tank_Move_Right.png-816e3ffe86d3ddca26a919dceff4f3ee.ctex"]
 
 [params]
 

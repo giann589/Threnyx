@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bor7dhsyjtl3u"
-path="res://.godot/imported/Blue_Snake_Tail.png-26ecbd90eaa0ff397ed10cb5072d1fac.ctex"
+path="res://.godot/imported/Blue_Snake_Tail.png-17e338ec0ebca5389bb3979f3f34d887.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Blue_Snake_Tail.png"
-dest_files=["res://.godot/imported/Blue_Snake_Tail.png-26ecbd90eaa0ff397ed10cb5072d1fac.ctex"]
+source_file="res://art/Alien/Blue_Snake_Tail.png"
+dest_files=["res://.godot/imported/Blue_Snake_Tail.png-17e338ec0ebca5389bb3979f3f34d887.ctex"]
 
 [params]
 

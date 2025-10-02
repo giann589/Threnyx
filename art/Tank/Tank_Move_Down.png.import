@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rk3kyvicjl56"
-path="res://.godot/imported/Blue_Snake_Walk_Up.png-fbfdd3306ad46ab830bf639c146998ff.ctex"
+uid="uid://c5n5uhql3qhbj"
+path="res://.godot/imported/Tank_Move_Down.png-c3a0007fafdb9c650a5adc57cbb7878b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Blue_Snake_Walk_Up.png"
-dest_files=["res://.godot/imported/Blue_Snake_Walk_Up.png-fbfdd3306ad46ab830bf639c146998ff.ctex"]
+source_file="res://art/Tank/Tank_Move_Down.png"
+dest_files=["res://.godot/imported/Tank_Move_Down.png-c3a0007fafdb9c650a5adc57cbb7878b.ctex"]
 
 [params]
 

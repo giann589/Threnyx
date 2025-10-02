@@ -1,0 +1,171 @@
+[gd_scene load_steps=22 format=3 uid="uid://cajb80m6mcld7"]
+
+[ext_resource type="Script" uid="uid://cvnm1jydn0ubr" path="res://scripts/boss.gd" id="1_jncid"]
+[ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://scenes/bullet.tscn" id="2_r3bxh"]
+[ext_resource type="PackedScene" uid="uid://omgtyapoo28h" path="res://scenes/cannon_bullet.tscn" id="3_2cdgk"]
+[ext_resource type="Texture2D" uid="uid://c5n5uhql3qhbj" path="res://art/Tank/Tank_Move_Down.png" id="5_qsl3t"]
+[ext_resource type="Texture2D" uid="uid://cjyew0y21wa5p" path="res://art/Tank/Tank_Move_Left.png" id="6_2avx2"]
+[ext_resource type="Texture2D" uid="uid://c8x2un0ln8giq" path="res://art/Tank/Tank_Move_Right.png" id="7_5f346"]
+[ext_resource type="Texture2D" uid="uid://8sjou0pyca17" path="res://art/Tank/Tank_Move_Up.png" id="8_0onds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqpjq"]
+atlas = ExtResource("5_qsl3t")
+region = Rect2(0, 0, 69, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdgk"]
+atlas = ExtResource("6_2avx2")
+region = Rect2(0, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsl3t"]
+atlas = ExtResource("7_5f346")
+region = Rect2(0, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2avx2"]
+atlas = ExtResource("8_0onds")
+region = Rect2(0, 0, 68, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfs1x"]
+atlas = ExtResource("5_qsl3t")
+region = Rect2(0, 0, 69, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eiau"]
+atlas = ExtResource("5_qsl3t")
+region = Rect2(69, 0, 69, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn2fc"]
+atlas = ExtResource("6_2avx2")
+region = Rect2(0, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqd3i"]
+atlas = ExtResource("6_2avx2")
+region = Rect2(92, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mautr"]
+atlas = ExtResource("7_5f346")
+region = Rect2(0, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho3mf"]
+atlas = ExtResource("7_5f346")
+region = Rect2(92, 0, 91, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7apjh"]
+atlas = ExtResource("8_0onds")
+region = Rect2(0, 0, 68, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh5fr"]
+atlas = ExtResource("8_0onds")
+region = Rect2(69, 0, 68, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqpjq")
+}],
+"loop": true,
+"name": &"look_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdgk")
+}],
+"loop": true,
+"name": &"look_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsl3t")
+}],
+"loop": true,
+"name": &"look_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2avx2")
+}],
+"loop": true,
+"name": &"look_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfs1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eiau")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn2fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqd3i")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mautr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho3mf")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7apjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh5fr")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqpjq"]
+size = Vector2(174, 174)
+
+[node name="Tank" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jncid")
+bullet_scene = ExtResource("2_r3bxh")
+cannon_bullet_scene = ExtResource("3_2cdgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nenq2")
+animation = &"move_down"
+frame_progress = 0.65637493
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -3)
+shape = SubResource("RectangleShape2D_wqpjq")
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+
+[node name="Bullet_Spawner" type="Marker2D" parent="."]
+position = Vector2(31, -2)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(315, -1)
+
+[node name="Cannon_Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="Cannon_Timer" to="." method="_on_cannon_timer_timeout"]
