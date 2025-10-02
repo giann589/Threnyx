@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 500
+var health = 50
 var speed = 100
 var last_facing_direction = Vector2.DOWN
 var player_visible = false
@@ -9,14 +9,16 @@ var start_y = 0
 var move_distance = 665
 var moving_up = false
 var active = false
+var is_dead = false
 
 @export var bullet_scene: PackedScene
 @export var cannon_bullet_scene: PackedScene
+@export var explosion_scene: PackedScene
 @export var detection_range = 10000
 @export var attack_range = 250
-@export var chase_speed = 150
 
 @onready var shoot_timer = $Shoot_Timer
+@onready var cannon_timer = $Cannon_Timer
 @onready var shoot_pointer = $Bullet_Spawner
 @onready var player: Node2D = get_tree().get_first_node_in_group("player")
 @onready var ray: RayCast2D = $RayCast2D
@@ -97,10 +99,19 @@ func can_see_player() -> bool:
 	return false
 	
 func take_damage(amount) -> void:
+	if is_dead:
+		return
+	
 	health -= amount
 	print("Enemy health:", health)
 	if health <= 0:
-		queue_free()
+		is_dead = true
+		shoot_timer.stop()
+		cannon_timer.stop()
+		set_process(false)
+		sprite.play("death_left")
+		explode()
+		
 		
 func update_animation_direction(direction):
 	if abs(direction.x) > abs(direction.y):
@@ -150,4 +161,20 @@ func _on_boss_trigger_body_entered(body):
 		var camera = body.get_node("Camera2D")
 		var tween = create_tween()
 		tween.tween_property(camera, "zoom", Vector2(1, 1), 1.5)
+		$AudioStreamPlayer.play()
 		active = true
+
+func explode():
+	if explosion_scene:
+		var explosion = explosion_scene.instantiate()
+		explosion.global_position = global_position
+		explosion.scale = Vector2(3, 3)
+		get_parent().add_child(explosion)
+	
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "death_left":
+		var main = get_tree().get_current_scene()
+		sprite.play("death_idle_left")
+		await get_tree().create_timer(5).timeout
+		main.show_win_screen()

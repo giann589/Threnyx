@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2y84106k4hgt"
+path="res://.godot/imported/All out Assault.wav-9765681ac52d5df0e3d149e91279f084.sample"
+
+[deps]
+
+source_file="res://music/All out Assault.wav"
+dest_files=["res://.godot/imported/All out Assault.wav-9765681ac52d5df0e3d149e91279f084.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

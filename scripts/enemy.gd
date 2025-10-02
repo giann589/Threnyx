@@ -5,6 +5,7 @@ var speed = 100
 var last_facing_direction = Vector2.DOWN
 var player_visible = false
 var player_in_range = false
+var is_dead = false
 
 @export var bullet_scene: PackedScene
 @export var heart_pickup_scene: PackedScene
@@ -32,6 +33,9 @@ func _ready():
 
 
 func _process(delta):
+	if is_dead:
+		return
+		
 	var dist_to_player = global_position.distance_to(player.global_position)
 
 	if dist_to_player <= detection_range and can_see_player():
@@ -84,17 +88,29 @@ func can_see_player() -> bool:
 	return false
 	
 func take_damage(amount) -> void:
+	if is_dead:
+		return
+	
 	health -= amount
 	print("Enemy health:", health)
-	if health <= 0:
-		drop_heal_pickup()
-		queue_free()
+	
+	if health > 0:
+		sprite.play("hit")
+		await get_tree().create_timer(0.2).timeout
+	else:
+		die()
 		
 func drop_heal_pickup():
 	if heart_pickup_scene:
 		var pickup = heart_pickup_scene.instantiate()
 		get_parent().add_child(pickup)
 		pickup.global_position = global_position
+
+func die():
+	is_dead = true
+	shoot_timer.stop()
+	velocity = Vector2.ZERO
+	sprite.play("death")
 
 func update_animation_direction(direction):
 	if abs(direction.x) > abs(direction.y):
@@ -123,3 +139,11 @@ func update_run_animation():
 		else:
 			sprite.play("walk_up")
 			shoot_pointer.position = BULLET_LOCATIONS["up"]
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "death":
+		sprite.play("dead")
+		await get_tree().create_timer(2.0).timeout
+		drop_heal_pickup()
+		queue_free()

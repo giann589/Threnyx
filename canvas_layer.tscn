@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d2rwuprgiyytc"]
+
+[node name="Win_Screen" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.97184, 27.154194)
+color = Color(0, 0, 0, 0.5294118)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 755.0
+offset_top = 291.0
+offset_right = 1178.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 108
+text = "YOU WIN!
+DEMO OVER"
+horizontal_alignment = 1

@@ -1,10 +1,53 @@
-[gd_scene load_steps=32 format=3 uid="uid://cgpqudqx6fqcp"]
+[gd_scene load_steps=45 format=3 uid="uid://cgpqudqx6fqcp"]
 
 [ext_resource type="Script" uid="uid://cky6qml8s4bh5" path="res://scripts/enemy.gd" id="1_4gyqm"]
 [ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://scenes/bullet.tscn" id="2_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://bjr8xn6mx6jkh" path="res://art/Solider1.png" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://bjr8xn6mx6jkh" path="res://art/Solider/Solider1.png" id="3_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://comojows31war" path="res://scenes/heart_pickup.tscn" id="3_c4w8v"]
-[ext_resource type="Texture2D" uid="uid://b7prs1dqb17r2" path="res://art/Solider_Run_Left.png" id="4_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://b7prs1dqb17r2" path="res://art/Solider/Solider_Run_Left.png" id="4_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://bhomhooencf8r" path="res://art/Solider/solider_dead.png" id="4_md484"]
+[ext_resource type="Texture2D" uid="uid://do2pvrfdoe67w" path="res://art/Solider/Solider_Death.png" id="5_ipns3"]
+[ext_resource type="Texture2D" uid="uid://tv4cemp3pkw8" path="res://art/Solider/Solider_Hit.png" id="6_8qclf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3vcr"]
+atlas = ExtResource("4_md484")
+region = Rect2(93, 0, 31, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaulx"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(0, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f82d"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(55, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lioqc"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(110, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lg75"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(165, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsnsy"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(220, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thsr5"]
+atlas = ExtResource("5_ipns3")
+region = Rect2(275, 0, 55, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekh6n"]
+atlas = ExtResource("6_8qclf")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sbpf"]
+atlas = ExtResource("6_8qclf")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78kod"]
+atlas = ExtResource("6_8qclf")
+region = Rect2(72, 0, 36, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("3_4ra3w")
@@ -104,6 +147,51 @@ region = Rect2(0, 1326, 60, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3vcr")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaulx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f82d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lioqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lg75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsnsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thsr5")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekh6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sbpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78kod")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ra3w")
@@ -231,7 +319,7 @@ heart_pickup_scene = ExtResource("3_c4w8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nenq2")
-animation = &"look_left"
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 3)
@@ -245,4 +333,5 @@ position = Vector2(31, -2)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(315, -1)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]

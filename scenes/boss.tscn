@@ -1,12 +1,51 @@
-[gd_scene load_steps=22 format=3 uid="uid://cajb80m6mcld7"]
+[gd_scene load_steps=34 format=3 uid="uid://cajb80m6mcld7"]
 
 [ext_resource type="Script" uid="uid://cvnm1jydn0ubr" path="res://scripts/boss.gd" id="1_jncid"]
 [ext_resource type="PackedScene" uid="uid://bj266l1yrb7aa" path="res://scenes/bullet.tscn" id="2_r3bxh"]
 [ext_resource type="PackedScene" uid="uid://omgtyapoo28h" path="res://scenes/cannon_bullet.tscn" id="3_2cdgk"]
+[ext_resource type="PackedScene" uid="uid://b3oumvihc4oj3" path="res://scenes/explosion.tscn" id="4_2avx2"]
+[ext_resource type="Texture2D" uid="uid://ci35kxyj1ih83" path="res://art/Tank/Tank_Death_Left.png" id="4_qsl3t"]
 [ext_resource type="Texture2D" uid="uid://c5n5uhql3qhbj" path="res://art/Tank/Tank_Move_Down.png" id="5_qsl3t"]
 [ext_resource type="Texture2D" uid="uid://cjyew0y21wa5p" path="res://art/Tank/Tank_Move_Left.png" id="6_2avx2"]
 [ext_resource type="Texture2D" uid="uid://c8x2un0ln8giq" path="res://art/Tank/Tank_Move_Right.png" id="7_5f346"]
 [ext_resource type="Texture2D" uid="uid://8sjou0pyca17" path="res://art/Tank/Tank_Move_Up.png" id="8_0onds"]
+[ext_resource type="AudioStream" uid="uid://b2y84106k4hgt" path="res://music/All out Assault.wav" id="10_5f346"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dd2w"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(1785, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f346"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(0, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0onds"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(255, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dlq0"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(510, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25au8"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(765, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk50o"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(1020, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_325t2"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(1275, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bagrn"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(1530, 0, 255, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3gxo"]
+atlas = ExtResource("4_qsl3t")
+region = Rect2(1785, 0, 255, 101)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqpjq"]
 atlas = ExtResource("5_qsl3t")
@@ -58,6 +97,43 @@ region = Rect2(69, 0, 68, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dd2w")
+}],
+"loop": true,
+"name": &"death_idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f346")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0onds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dlq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25au8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk50o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_325t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bagrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3gxo")
+}],
+"loop": false,
+"name": &"death_left",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wqpjq")
@@ -144,12 +220,13 @@ collision_mask = 2
 script = ExtResource("1_jncid")
 bullet_scene = ExtResource("2_r3bxh")
 cannon_bullet_scene = ExtResource("3_2cdgk")
+explosion_scene = ExtResource("4_2avx2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nenq2")
-animation = &"move_down"
-frame_progress = 0.65637493
+animation = &"death_idle_left"
+frame_progress = 0.61137
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -3)
@@ -168,5 +245,9 @@ target_position = Vector2(10000, 0)
 wait_time = 5.0
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5f346")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Cannon_Timer" to="." method="_on_cannon_timer_timeout"]

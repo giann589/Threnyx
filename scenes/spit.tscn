@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cddirgp1eehnu"]
 
 [ext_resource type="Script" uid="uid://b05la25tblne0" path="res://scripts/spit.gd" id="1_aahm3"]
-[ext_resource type="Texture2D" uid="uid://b8o2chlfq8513" path="res://art/PistolAmmoBig.png" id="2_c4fow"]
+[ext_resource type="Texture2D" uid="uid://dyepwt3u3g7ee" path="res://art/Spit.png" id="2_c4fow"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fhrs"]
 
