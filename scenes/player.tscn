@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bncrespsxarmm"]
+[gd_scene load_steps=29 format=3 uid="uid://bncrespsxarmm"]
 
 [ext_resource type="Script" uid="uid://cylrbf1w0ifk7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://cddirgp1eehnu" path="res://scenes/spit.tscn" id="2_3v2ag"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bfl3lebluojek" path="res://art/Alien/Alien_hit-Sheet.png" id="9_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://daxa24iqr72lt" path="res://art/Alien/Alien_deatht-Sheet.png" id="10_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://ctuoqf5xuyac8" path="res://music/Vali_Walk_Short.wav" id="11_jej6c"]
+[ext_resource type="AudioStream" uid="uid://bot282cf51mar" path="res://sfx/Vali_Walk.wav" id="14_f1ej7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 20.0
@@ -102,6 +103,18 @@ tracks/6/path = NodePath("AudioStreamPlayer:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -594,21 +607,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 1, 0, 1]
 }
-tracks/4/type = "audio"
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/path = NodePath("AudioStreamPlayer2:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": [{
-"end_offset": 0.13,
-"start_offset": 0.44,
-"stream": ExtResource("11_jej6c")
-}],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
-tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
 _data = {
@@ -676,6 +686,12 @@ texture_scale = 4.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ur7pv")
+volume_db = -10.3
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_f1ej7")
+volume_db = 24.0
+pitch_scale = 4.0
 
 [connection signal="body_entered" from="Sprite2D/AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
