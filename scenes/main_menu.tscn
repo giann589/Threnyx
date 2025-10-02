@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bx11syu7h0r4w"]
+[gd_scene load_steps=20 format=3 uid="uid://bx11syu7h0r4w"]
 
 [ext_resource type="Script" uid="uid://ck8j3skrg1qrg" path="res://scripts/main_menu.gd" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://m3t3yt84ymdi" path="res://fonts/alien_3_font.otf" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://brxkqqv02f5hh" path="res://art/Menu_Picture.png" id="2_wu84c"]
 [ext_resource type="AudioStream" uid="uid://cu6boy3nounlj" path="res://music/Enduring Love.mp3" id="3_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
@@ -43,6 +44,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
 metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 546.0
+offset_right = 1384.0
+offset_bottom = 1080.0
+texture = ExtResource("2_wu84c")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0

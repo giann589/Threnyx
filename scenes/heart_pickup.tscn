@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://comojows31war"]
+
+[ext_resource type="Texture2D" uid="uid://bcqv4e4ftl5o2" path="res://art/Heart_WithShadow.png" id="1_4dc3y"]
+[ext_resource type="Script" uid="uid://b8tqwt0nheejs" path="res://scripts/heart_pickup.gd" id="1_m16xc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m16xc"]
+atlas = ExtResource("1_4dc3y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk5un"]
+atlas = ExtResource("1_4dc3y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grbqr"]
+atlas = ExtResource("1_4dc3y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o3vx"]
+atlas = ExtResource("1_4dc3y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53od7"]
+atlas = ExtResource("1_4dc3y")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ahd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m16xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk5un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grbqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o3vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53od7")
+}],
+"loop": true,
+"name": &"beating",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpfni"]
+size = Vector2(27, 33)
+
+[node name="Heart" type="Area2D"]
+script = ExtResource("1_m16xc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_t6ahd")
+animation = &"beating"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_bpfni")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

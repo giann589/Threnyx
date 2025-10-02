@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bncrespsxarmm"]
+[gd_scene load_steps=27 format=3 uid="uid://bncrespsxarmm"]
 
 [ext_resource type="Script" uid="uid://cylrbf1w0ifk7" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://cddirgp1eehnu" path="res://scenes/spit.tscn" id="2_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dvu5t1bl7clsj" path="res://art/Alien/Blue_Snake_Idle.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bx8y8hilitnlr" path="res://art/Alien/Blue_Snake_Walk.png" id="2_fjrip"]
 [ext_resource type="AudioStream" uid="uid://cjith2a0darsl" path="res://sfx/Vali_Hit_Alternate.wav" id="3_ur7pv"]
@@ -590,6 +591,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_g2els")
+spit_scene = ExtResource("2_3v2ag")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)

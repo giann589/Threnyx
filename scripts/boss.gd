@@ -6,13 +6,13 @@ var last_facing_direction = Vector2.DOWN
 var player_visible = false
 var player_in_range = false
 var start_y = 0
-var move_distance = 200
+var move_distance = 665
 var moving_up = false
 var active = false
 
 @export var bullet_scene: PackedScene
 @export var cannon_bullet_scene: PackedScene
-@export var detection_range = 500
+@export var detection_range = 10000
 @export var attack_range = 250
 @export var chase_speed = 150
 
@@ -85,6 +85,8 @@ func shoot():
 func can_see_player() -> bool:
 	if not player:
 		return false
+	if not ray:
+		return false
 	ray.target_position = to_local(player.global_position)
 	ray.force_raycast_update()
 	
@@ -145,4 +147,7 @@ func shoot_cannon():
 	
 func _on_boss_trigger_body_entered(body):
 	if body.is_in_group("player"):
+		var camera = body.get_node("Camera2D")
+		var tween = create_tween()
+		tween.tween_property(camera, "zoom", Vector2(1, 1), 1.5)
 		active = true
